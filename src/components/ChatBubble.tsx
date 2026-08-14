@@ -17,6 +17,7 @@ export const ChatBubble: React.FC<{
   left?: number;
   right?: number;
   width: number;
+  avatarBackground?: string;
 }> = ({
   sender,
   text,
@@ -28,6 +29,7 @@ export const ChatBubble: React.FC<{
   left,
   right,
   width,
+  avatarBackground,
 }) => {
   const frame = useCurrentFrame();
 
@@ -79,12 +81,32 @@ export const ChatBubble: React.FC<{
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-        <Img
-          src={staticFile(avatarSrc)}
-          width={34}
-          height={34}
-          style={{ borderRadius: "50%", flexShrink: 0 }}
-        />
+        {avatarBackground ? (
+          <div
+            style={{
+              width: 34,
+              height: 34,
+              borderRadius: "50%",
+              backgroundColor: avatarBackground,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              flexShrink: 0,
+            }}
+          >
+            <Img
+              src={staticFile(avatarSrc)}
+              style={{ width: 20, height: 20, objectFit: "contain" }}
+            />
+          </div>
+        ) : (
+          <Img
+            src={staticFile(avatarSrc)}
+            width={34}
+            height={34}
+            style={{ borderRadius: "50%", flexShrink: 0 }}
+          />
+        )}
         <span
           style={{
             fontFamily,

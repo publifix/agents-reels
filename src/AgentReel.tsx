@@ -48,7 +48,6 @@ export const AgentReel: React.FC<AgentReelComponentProps> = ({
   backgroundVideoExists = true,
   clientName,
   clientGender,
-  businessName,
   messages,
   closingLine,
   websiteUrl,
@@ -67,9 +66,8 @@ export const AgentReel: React.FC<AgentReelComponentProps> = ({
         <ChatOverlay
           messages={messages}
           clientLabel={resolvedClientName}
-          agentLabel={`${businessName} Agent`}
           clientAvatarSrc="logo/avatar-generic.svg"
-          agentAvatarSrc="logo/avatar-labs.svg"
+          agentAvatarSrc="logo/avatar-labs.png"
           closingStartFrame={closingStartFrame}
         />
       </Sequence>

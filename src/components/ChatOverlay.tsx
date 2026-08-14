@@ -1,4 +1,5 @@
 import React from "react";
+import { theme } from "../theme";
 import { ChatMessage } from "../types";
 import { ChatBubble } from "./ChatBubble";
 
@@ -10,17 +11,17 @@ const AGENT_WIDTH = 620;
 const CONTAINER_BOTTOM_MARGIN = 210;
 const NEWEST_BUBBLE_BOTTOM = 40;
 
+const AGENT_LABEL = "LABS Agent";
+
 export const ChatOverlay: React.FC<{
   messages: ChatMessage[];
   clientLabel: string;
-  agentLabel: string;
   clientAvatarSrc: string;
   agentAvatarSrc: string;
   closingStartFrame: number;
 }> = ({
   messages,
   clientLabel,
-  agentLabel,
   clientAvatarSrc,
   agentAvatarSrc,
   closingStartFrame,
@@ -57,8 +58,9 @@ export const ChatOverlay: React.FC<{
             key={`${message.sender}-${message.appearAtFrame}-${index}`}
             sender={message.sender}
             text={message.text}
-            label={isClient ? clientLabel : agentLabel}
+            label={isClient ? clientLabel : AGENT_LABEL}
             avatarSrc={isClient ? clientAvatarSrc : agentAvatarSrc}
+            avatarBackground={isClient ? undefined : theme.labsDark}
             appearAtFrame={message.appearAtFrame}
             disappearAtFrame={disappearAtFrame}
             bottom={bottom}
