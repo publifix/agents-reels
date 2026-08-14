@@ -12,7 +12,7 @@ export const ChatBubble: React.FC<{
   label: string;
   avatarSrc: string;
   appearAtFrame: number;
-  disappearAtFrame: number;
+  disappearAtFrame: number | null;
   bottom: number;
   left?: number;
   right?: number;
@@ -39,12 +39,21 @@ export const ChatBubble: React.FC<{
     [0, 1],
     { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
-  const fadeOut = interpolate(
-    frame,
-    [disappearAtFrame - FADE_FRAMES, disappearAtFrame],
-    [1, 0],
-    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
-  );
+  // A null disappearAtFrame means this bubble is the last one in its slot:
+  // it stays fully visible until the chat Sequence itself ends, instead of
+  // fading out (which would otherwise collide with its own fade-in).
+  const fadeOut =
+    disappearAtFrame === null
+      ? 1
+      : interpolate(
+          frame,
+          [disappearAtFrame - FADE_FRAMES, disappearAtFrame],
+          [1, 0],
+          {
+            extrapolateLeft: "clamp",
+            extrapolateRight: "clamp",
+          },
+        );
   const opacity = Math.min(fadeIn, fadeOut);
 
   if (opacity <= 0) {

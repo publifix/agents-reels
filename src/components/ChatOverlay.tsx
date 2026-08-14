@@ -18,14 +18,7 @@ export const ChatOverlay: React.FC<{
   clientLabel: string;
   clientAvatarSrc: string;
   agentAvatarSrc: string;
-  closingStartFrame: number;
-}> = ({
-  messages,
-  clientLabel,
-  clientAvatarSrc,
-  agentAvatarSrc,
-  closingStartFrame,
-}) => {
+}> = ({ messages, clientLabel, clientAvatarSrc, agentAvatarSrc }) => {
   const sorted = [...messages].sort(
     (a, b) => a.appearAtFrame - b.appearAtFrame,
   );
@@ -42,8 +35,7 @@ export const ChatOverlay: React.FC<{
       {sorted.map((message, index) => {
         const slot = index % MAX_VISIBLE;
         const nextSameSlot = sorted[index + MAX_VISIBLE];
-        const disappearAtFrame =
-          nextSameSlot?.appearAtFrame ?? closingStartFrame;
+        const disappearAtFrame = nextSameSlot?.appearAtFrame ?? null;
 
         // Older bubbles (lower slot) sit higher up; each newer bubble
         // cascades further down and further right, toward the anchor line.

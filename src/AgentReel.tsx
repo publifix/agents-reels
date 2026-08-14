@@ -68,7 +68,6 @@ export const AgentReel: React.FC<AgentReelComponentProps> = ({
           clientLabel={resolvedClientName}
           clientAvatarSrc="logo/avatar-generic.svg"
           agentAvatarSrc="logo/avatar-labs.png"
-          closingStartFrame={closingStartFrame}
         />
       </Sequence>
       <Sequence from={closingStartFrame}>
