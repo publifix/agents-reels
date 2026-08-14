@@ -14,17 +14,17 @@ export const hotelCase: AgentReelProps = {
     {
       sender: "agent",
       text: "¡Hola! Sí, nos queda una habitación doble para sábado y domingo. ¿Para cuántas personas sería?",
-      appearAtFrame: 70,
+      appearAtFrame: 100,
     },
     {
       sender: "client",
       text: "para 2, vamos con mi pareja",
-      appearAtFrame: 120,
+      appearAtFrame: 180,
     },
     {
       sender: "agent",
       text: "Perfecto, te la puedo apartar. ¿Te comparto el link de pago para confirmar tu reserva?",
-      appearAtFrame: 165,
+      appearAtFrame: 260,
     },
   ],
   closingLine: "Un agente para cada tipo de negocio",

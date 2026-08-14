@@ -8,11 +8,12 @@ import {
 } from "remotion";
 import { BackgroundMedia } from "./components/BackgroundMedia";
 import { ChatOverlay } from "./components/ChatOverlay";
-import { ClosingSequence } from "./sequences/ClosingSequence";
+import {
+  ClosingSequence,
+  CLOSING_DURATION_IN_FRAMES,
+} from "./sequences/ClosingSequence";
 import { getRandomName } from "./data/names";
 import { AgentReelProps } from "./types";
-
-export const CLOSING_DURATION_IN_FRAMES = 90;
 
 type AgentReelComponentProps = AgentReelProps & {
   backgroundVideoExists?: boolean;

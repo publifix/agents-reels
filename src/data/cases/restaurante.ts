@@ -14,17 +14,17 @@ export const restauranteCase: AgentReelProps = {
     {
       sender: "agent",
       text: "¡Hola! Sí tenemos. ¿Para cuántas personas y a qué hora te gustaría?",
-      appearAtFrame: 70,
+      appearAtFrame: 100,
     },
     {
       sender: "client",
       text: "somos 4, como a las 9",
-      appearAtFrame: 120,
+      appearAtFrame: 180,
     },
     {
       sender: "agent",
       text: "Perfecto, quedas reservado viernes 9pm para 4 personas. ¿Algún requerimiento especial?",
-      appearAtFrame: 165,
+      appearAtFrame: 260,
     },
   ],
   closingLine: "Un agente para cada tipo de negocio",
