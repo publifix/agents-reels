@@ -2,6 +2,7 @@ import { AgentReelProps } from "../../types";
 
 export const fallaWifiCase: AgentReelProps = {
   backgroundVideoSrc: "videos/falla-wifi-01.mp4",
+  clientName: "Ricardo",
   clientGender: "male",
   businessName: "Conecta+",
   messages: [

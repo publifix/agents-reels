@@ -2,6 +2,7 @@ import { AgentReelProps } from "../../types";
 
 export const hotelCase: AgentReelProps = {
   backgroundVideoSrc: "videos/hotel-01.mp4",
+  clientName: "Itzel",
   clientGender: "female",
   businessName: "Hotel Casa Vista",
   messages: [
