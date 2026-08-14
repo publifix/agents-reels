@@ -14,17 +14,17 @@ export const fallaWifiCase: AgentReelProps = {
     {
       sender: "agent",
       text: "Hola, qué pena. ¿Me confirmas tu número de servicio o la dirección donde está instalado?",
-      appearAtFrame: 70,
+      appearAtFrame: 100,
     },
     {
       sender: "client",
       text: "Av. Constituyentes 245, depa 3B",
-      appearAtFrame: 120,
+      appearAtFrame: 180,
     },
     {
       sender: "agent",
       text: "Perfecto, ya veo tu línea. Hay una intermitencia en tu zona, la estamos resolviendo, debería normalizarse en un par de horas",
-      appearAtFrame: 165,
+      appearAtFrame: 260,
     },
   ],
   closingLine: "Un agente para cada tipo de negocio",

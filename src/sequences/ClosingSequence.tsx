@@ -9,13 +9,20 @@ import {
 import { fontFamily } from "../fonts";
 import { theme } from "../theme";
 
-const BG_FADE_FRAMES = 20;
-const LOGO_START = 15;
-const LOGO_FADE_FRAMES = 20;
-const CLOSING_LINE_START = 45;
-const CLOSING_LINE_FADE_FRAMES = 18;
-const WEBSITE_START = CLOSING_LINE_START + 15;
-const WEBSITE_FADE_FRAMES = 15;
+// How many of the composition's final frames are handed over to this
+// closing screen. AgentReel derives closingStartFrame from this, and the
+// fade timings below are tuned to fit comfortably inside this window with
+// a bit of hold time at the end — if this changes, re-check that
+// WEBSITE_START + WEBSITE_FADE_FRAMES still lands safely before it.
+export const CLOSING_DURATION_IN_FRAMES = 60;
+
+const BG_FADE_FRAMES = 15;
+const LOGO_START = 10;
+const LOGO_FADE_FRAMES = 16;
+const CLOSING_LINE_START = 28;
+const CLOSING_LINE_FADE_FRAMES = 12;
+const WEBSITE_START = CLOSING_LINE_START + 15; // ~half a second later
+const WEBSITE_FADE_FRAMES = 12;
 
 const fadeInAt = (frame: number, start: number, duration: number) =>
   interpolate(frame, [start, start + duration], [0, 1], {

@@ -14,17 +14,17 @@ export const persianasCase: AgentReelProps = {
     {
       sender: "agent",
       text: "Claro que sí, mandamos a alguien a medir sin costo. ¿Para cuántas ventanas sería aprox?",
-      appearAtFrame: 70,
+      appearAtFrame: 100,
     },
     {
       sender: "client",
       text: "son 4 ventanas grandes, sala y recámara",
-      appearAtFrame: 120,
+      appearAtFrame: 180,
     },
     {
       sender: "agent",
       text: "Perfecto, con eso ya te puedo dar una cotización estimada. ¿Qué día te queda bien la visita?",
-      appearAtFrame: 165,
+      appearAtFrame: 260,
     },
   ],
   closingLine: "Un agente para cada tipo de negocio",
