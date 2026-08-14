@@ -3,6 +3,15 @@ import { Img, interpolate, staticFile, useCurrentFrame } from "remotion";
 import { fontFamily } from "../fonts";
 import { theme } from "../theme";
 import { MessageSender } from "../types";
+import {
+  BUBBLE_BORDER_WIDTH,
+  BUBBLE_HEADER_HEIGHT,
+  BUBBLE_HEADER_TO_TEXT_GAP,
+  BUBBLE_PADDING_H,
+  BUBBLE_PADDING_V,
+  MESSAGE_FONT_SIZE,
+  MESSAGE_LINE_HEIGHT,
+} from "../utils/bubbleLayout";
 
 const FADE_FRAMES = 15;
 
@@ -80,21 +89,21 @@ export const ChatBubble: React.FC<{
         transform: `translateX(${slideProgress}px)`,
         display: "flex",
         flexDirection: "column",
-        gap: 8,
+        gap: BUBBLE_HEADER_TO_TEXT_GAP,
         backgroundColor: theme.bubbleBackground,
         backdropFilter: `blur(${theme.bubbleBlur}px)`,
         WebkitBackdropFilter: `blur(${theme.bubbleBlur}px)`,
         borderRadius: theme.bubbleRadius,
-        padding: "16px 20px",
-        border: "1px solid rgba(255, 255, 255, 0.08)",
+        padding: `${BUBBLE_PADDING_V}px ${BUBBLE_PADDING_H}px`,
+        border: `${BUBBLE_BORDER_WIDTH}px solid rgba(255, 255, 255, 0.08)`,
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
         {avatarBackground ? (
           <div
             style={{
-              width: 34,
-              height: 34,
+              width: BUBBLE_HEADER_HEIGHT,
+              height: BUBBLE_HEADER_HEIGHT,
               borderRadius: "50%",
               backgroundColor: avatarBackground,
               display: "flex",
@@ -111,8 +120,8 @@ export const ChatBubble: React.FC<{
         ) : (
           <Img
             src={staticFile(avatarSrc)}
-            width={34}
-            height={34}
+            width={BUBBLE_HEADER_HEIGHT}
+            height={BUBBLE_HEADER_HEIGHT}
             style={{ borderRadius: "50%", flexShrink: 0 }}
           />
         )}
@@ -130,9 +139,9 @@ export const ChatBubble: React.FC<{
       <span
         style={{
           fontFamily,
-          fontSize: 27,
+          fontSize: MESSAGE_FONT_SIZE,
           fontWeight: 500,
-          lineHeight: 1.35,
+          lineHeight: MESSAGE_LINE_HEIGHT,
           color: theme.textPrimary,
         }}
       >
